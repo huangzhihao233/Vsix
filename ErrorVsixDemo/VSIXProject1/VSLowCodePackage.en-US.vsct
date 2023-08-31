@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<Extern href="stdidcmd.h" />
+
+	<Extern href="vsshlids.h" />
+
+	<Commands package="guidVSLowCodePackage">
+
+		<Groups>
+			<Group guid="guidDBToCodeCmdSet" id="dbToCodeGroup" priority="0x0200">
+				<Parent guid="guidDBToCodeCmdSet" id="dbToCodeMenu" />
+			</Group>
+			<Group guid="guidDBToCodeCmdSet" id="dbToCodeRootGroup" priority="0x0100">
+				<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_PROJNODE" />
+			</Group>
+
+			<Group guid="guidEntityToCodeCmdSet" id="entityToCodeGroup" priority="0x0200">
+				<Parent guid="guidEntityToCodeCmdSet" id="entityToCodeMenu" />
+			</Group>
+			<Group guid="guidEntityToCodeCmdSet" id="entityToCodeRootGroup" priority="0x0100">
+				<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_ITEMNODE" />
+			</Group>
+		</Groups>
+
+		<!-- Menus sections -->
+		<Menus>
+			<Menu guid="guidDBToCodeCmdSet" id="dbToCodeMenu" priority="0x0200" type="Menu">
+				<Parent guid="guidDBToCodeCmdSet" id="dbToCodeRootGroup" />
+				<CommandFlag>DynamicVisibility</CommandFlag>
+				<Strings>
+					<ButtonText>Test1</ButtonText>
+				</Strings>
+			</Menu>
+			<Menu guid="guidEntityToCodeCmdSet" id="entityToCodeMenu" priority="0x0200" type="Menu">
+				<Parent guid="guidEntityToCodeCmdSet" id="entityToCodeRootGroup" />
+				<CommandFlag>DynamicVisibility</CommandFlag>
+				<Strings>
+					<ButtonText>Test2</ButtonText>
+				</Strings>
+			</Menu>
+		</Menus>
+		<Buttons>
+			<Button guid="guidDBToCodeCmdSet" id="dbToCodeCommand" priority="0x0100" type="Button">
+				<Parent guid="guidDBToCodeCmdSet" id="dbToCodeGroup" />
+				<Icon guid="guidImageDbToEntity" id="bmpPic1" />
+				<CommandFlag>DynamicVisibility</CommandFlag>
+				<Strings>
+					<ButtonText>Test3</ButtonText>
+				</Strings>
+			</Button>
+
+			<Button guid="guidEntityToCodeCmdSet" id="dtoToCodeCommand" priority="0x0200" type="Button">
+				<Parent guid="guidEntityToCodeCmdSet" id="entityToCodeGroup" />
+				<Icon guid="guidImageEntityToDto" id="bmpPic1" />
+				<CommandFlag>DynamicVisibility</CommandFlag>
+				<Strings>
+					<ButtonText>Test4</ButtonText>
+				</Strings>
+			</Button>
+
+			<Button guid="guidEntityToCodeCmdSet" id="entityToCodeCommand" priority="0x0100" type="Button">
+				<Parent guid="guidEntityToCodeCmdSet" id="entityToCodeGroup" />
+				<Icon guid="guidImageEntityToService" id="bmpPic1" />
+				<CommandFlag>DynamicVisibility</CommandFlag>
+				<Strings>
+					<ButtonText>Test5</ButtonText>
+				</Strings>
+			</Button>
+
+			<Button guid="guidEntityToCodeCmdSet" id="serviceToCodeCommand" priority="0x0200" type="Button">
+				<Parent guid="guidEntityToCodeCmdSet" id="entityToCodeGroup" />
+				<Icon guid="guidImageServiceToController" id="bmpPic1" />
+				<CommandFlag>DynamicVisibility</CommandFlag>
+				<Strings>
+					<ButtonText>Test6</ButtonText>
+				</Strings>
+			</Button>
+
+			<Button guid="guidAboutCmdSet" id="aboutCommand" priority="0x0300" type="Button">
+				<Parent guid="guidDBToCodeCmdSet" id="dbToCodeGroup" />
+				<Icon guid="guidImageAbout" id="bmpPic1" />
+				<CommandFlag>DynamicVisibility</CommandFlag>
+				<Strings>
+					<ButtonText>About</ButtonText>
+				</Strings>
+			</Button>
+
+		</Buttons>
+
+		<Bitmaps>
+			<Bitmap guid="guidImageDbToEntity" href="Resources\Menus\db_entity.png" usedList="bmpPic1" />
+			<Bitmap guid="guidImageEntityToService" href="Resources\Menus\entity_service.png" usedList="bmpPic1" />
+			<Bitmap guid="guidImageServiceToController" href="Resources\Menus\service_controller.png" usedList="bmpPic1" />
+			<Bitmap guid="guidImageAbout" href="Resources\Menus\about.png" usedList="bmpPic1" />
+			<Bitmap guid="guidImageEntityToDto" href="Resources\Menus\entity_service.png" usedList="bmpPic1" />
+		</Bitmaps>
+	</Commands>
+	<VisibilityConstraints>
+		<VisibilityItem guid="guidDBToCodeCmdSet" id="dbToCodeMenu" context="UICONTEXT_SolutionExists"></VisibilityItem>
+		<VisibilityItem guid="guidDBToCodeCmdSet" id="dbToCodeMenu" context="UICONTEXT_SolutionHasSingleProject"></VisibilityItem>
+		<VisibilityItem guid="guidEntityToCodeCmdSet" id="entityToCodeMenu" context="UICONTEXT_SolutionExists"></VisibilityItem>
+	</VisibilityConstraints>
+	<CommandPlacements>
+		<!-- reusable group-->
+		<CommandPlacement guid="guidDBToCodeCmdSet" id="dbToCodeRootGroup" priority="0x0600">
+			<Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS" />
+		</CommandPlacement>
+		<CommandPlacement guid="guidDBToCodeCmdSet" id="dbToCodeRootGroup" priority="0x0600">
+			<Parent guid="guidServerExplorerMenuCmdSet" id="serverExplorerTableRightClickMenu" />
+		</CommandPlacement>
+		<CommandPlacement guid="guidDBToCodeCmdSet" id="dbToCodeRootGroup" priority="0x0600">
+			<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_SOLNFOLDER" />
+		</CommandPlacement>
+		<CommandPlacement guid="guidEntityToCodeCmdSet" id="entityToCodeRootGroup" priority="0x0600">
+			<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_CODEWIN" />
+		</CommandPlacement>
+		<!--<CommandPlacement guid="guidEntityToCodeCmdSet" id="entityToCodeRootGroup" priority="0x0600">
+         <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_FOLDERNODE" />
+        </CommandPlacement>-->
+		<!-- reusable button-->
+		<CommandPlacement guid="guidAboutCmdSet" id="aboutCommand" priority="0x0600">
+			<Parent guid="guidEntityToCodeCmdSet" id="entityToCodeGroup" />
+		</CommandPlacement>
+	</CommandPlacements>
+
+	<Symbols>
+		<GuidSymbol name="guidVSLowCodePackage" value="{2fb07ff1-66bc-4776-ab93-b6bb4b93b49b}" />
+		<GuidSymbol name="guidServerExplorerMenuCmdSet" value="{74D21310-2AEE-11D1-8BFB-00A0C90F26F7}">
+			<IDSymbol name="serverExplorerTableRightClickMenu" value="1283" />
+		</GuidSymbol>
+
+		<!-- EntityToCode menu in Project folder -->
+		<GuidSymbol value="{6f825905-4658-47f8-b686-9a399f0f92ad}" name="guidEntityToCodeCmdSet">
+			<IDSymbol value="30" name="entityToCodeRootGroup" />
+			<IDSymbol value="31" name="entityToCodeGroup" />
+			<IDSymbol value="32" name="entityToCodeMenu" />
+			<IDSymbol value="250" name="dtoToCodeCommand" />
+			<IDSymbol value="300" name="entityToCodeCommand" />
+			<IDSymbol value="350" name="serviceToCodeCommand" />
+		</GuidSymbol>
+
+		<!-- DBToCode menu in Project  -->
+		<GuidSymbol value="{ac49311b-0886-4007-a251-c4b219369c2a}" name="guidDBToCodeCmdSet">
+			<IDSymbol value="20" name="dbToCodeRootGroup" />
+			<IDSymbol value="21" name="dbToCodeGroup" />
+			<IDSymbol value="22" name="dbToCodeMenu" />
+			<IDSymbol value="200" name="dbToCodeCommand" />
+		</GuidSymbol>
+
+		<GuidSymbol value="{6036e733-a58c-4a46-a8b6-4ab32ab858ca}" name="guidAboutCmdSet">
+			<IDSymbol value="400" name="aboutCommand" />
+		</GuidSymbol>
+
+		<GuidSymbol value="{9cfaa076-b9bf-469d-bb26-ed6c3c04ca41}" name="guidImageDbToEntity">
+			<IDSymbol name="bmpPic1" value="1" />
+		</GuidSymbol>
+
+		<GuidSymbol value="{096a1c59-313d-417f-b2ef-3b7e9e21c1dc}" name="guidImageEntityToService">
+			<IDSymbol name="bmpPic1" value="1" />
+		</GuidSymbol>
+
+		<GuidSymbol value="{6A066D10-41AC-4D57-9F4A-4705DE01C1DA}" name="guidImageServiceToController">
+			<IDSymbol name="bmpPic1" value="1" />
+		</GuidSymbol>
+
+		<GuidSymbol value="{A2A82E25-A20B-4600-BD10-838C475E37B1}" name="guidImageAbout">
+			<IDSymbol name="bmpPic1" value="1" />
+		</GuidSymbol>
+
+		<GuidSymbol value="{2F22E495-9F8E-483A-AC9F-5B7732A29993}" name="guidImageEntityToDto">
+			<IDSymbol name="bmpPic1" value="1" />
+		</GuidSymbol>
+
+	</Symbols>
+</CommandTable>
